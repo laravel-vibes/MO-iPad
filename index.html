@@ -15,12 +15,13 @@
   body { margin: 0; min-height: 100vh; font: 17px/1.5 -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
          color: var(--ink); background: linear-gradient(180deg, color-mix(in srgb, var(--brand) 14%, var(--bg)), var(--bg) 60%);
          display: flex; justify-content: center; padding: 48px 20px; }
-  main { width: 100%; max-width: 1080px; }
+  main { width: 100%; max-width: 1280px; }
   .top { text-align: center; margin: 0 0 24px; }
   .top h1 { font-size: 32px; margin: 0 0 4px; }
   .top p { color: var(--muted); margin: 0; }
   .apps { display: grid; gap: 24px; grid-template-columns: 1fr; align-items: start; }
   @media (min-width: 860px) { .apps { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1200px) { .apps { grid-template-columns: 1fr 1fr 1fr; } }
   .top .warn { max-width: 520px; margin: 16px auto 0; }
   .card { background: var(--card); border-radius: 24px; padding: 36px 32px; box-shadow: 0 10px 40px rgba(0, 40, 90, .10); text-align: center; }
   .icon { width: 112px; height: 112px; border-radius: 25px; box-shadow: 0 6px 18px rgba(0, 0, 0, .15); }
@@ -92,6 +93,28 @@
         <li>In the EHR, go to <strong>Settings → Appointments → Check-in kiosks</strong>, add a kiosk for the location and copy its 8-character pairing code.</li>
         <li>Open <strong>Check-in</strong> on the iPad and enter the code. <span>(Codes expire after 24 hours.)</span></li>
         <li>Optional: turn on <strong>Guided Access</strong> (Settings → Accessibility) so patients can't leave the app. Hold the logo for 5 seconds to unpair.</li>
+      </ol>
+    </section>
+
+    <section class="card" id="inventory">
+      <img class="icon" src="inventory/icon-512.png" alt="Clinic Inventory app icon">
+      <h1>Clinic Inventory</h1>
+      <p class="meta">Stock, equipment and daily checks for ward staff · Version 1.0 (1)</p>
+      <a class="install" href="itms-services://?action=download-manifest&amp;url=https://laravel-vibes.github.io/MO-iPad/inventory/manifest.plist">Install Clinic Inventory</a>
+
+      <div class="new">
+        <h2>What it does</h2>
+        <ul>
+          <li>Scan items and locations, record stock, custody and daily checks.</li>
+          <li>Works offline and syncs when the iPad is back on the network.</li>
+          <li>English and Arabic.</li>
+        </ul>
+      </div>
+
+      <ol>
+        <li>Tap <strong>Install Clinic Inventory</strong>, then tap <strong>Install</strong> in the prompt.</li>
+        <li>Open the app and enter the server <strong>inventory-jibrel.on-forge.com</strong>.</li>
+        <li>Sign in with your account, then create your PIN.</li>
       </ol>
     </section>
   </div>
