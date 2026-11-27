@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Install Medical Ocean for iPad</title>
+<title>Install Medical Ocean iPad apps</title>
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
   :root { --brand: #0072CE; --ink: #12233a; --muted: #5d6b7e; --card: #ffffff; --bg: #eef3f9; --line: #dde5ef; }
@@ -15,7 +15,13 @@
   body { margin: 0; min-height: 100vh; font: 17px/1.5 -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
          color: var(--ink); background: linear-gradient(180deg, color-mix(in srgb, var(--brand) 14%, var(--bg)), var(--bg) 60%);
          display: flex; justify-content: center; padding: 48px 20px; }
-  main { width: 100%; max-width: 520px; }
+  main { width: 100%; max-width: 1080px; }
+  .top { text-align: center; margin: 0 0 24px; }
+  .top h1 { font-size: 32px; margin: 0 0 4px; }
+  .top p { color: var(--muted); margin: 0; }
+  .apps { display: grid; gap: 24px; grid-template-columns: 1fr; align-items: start; }
+  @media (min-width: 860px) { .apps { grid-template-columns: 1fr 1fr; } }
+  .top .warn { max-width: 520px; margin: 16px auto 0; }
   .card { background: var(--card); border-radius: 24px; padding: 36px 32px; box-shadow: 0 10px 40px rgba(0, 40, 90, .10); text-align: center; }
   .icon { width: 112px; height: 112px; border-radius: 25px; box-shadow: 0 6px 18px rgba(0, 0, 0, .15); }
   h1 { font-size: 28px; margin: 18px 0 4px; letter-spacing: -.01em; }
@@ -36,32 +42,60 @@
 </head>
 <body>
 <main>
-  <div class="card">
-    <img class="icon" src="icon-512.png" alt="Medical Ocean app icon">
-    <h1>Medical Ocean</h1>
-    <p class="meta">EHR for iPad · Version 1.0.3 (3) · Requires iPadOS 26 or later</p>
-
-    <a class="install" href="itms-services://?action=download-manifest&amp;url=https://laravel-vibes.github.io/MO-iPad/manifest.plist">Install on this iPad</a>
-    <div class="warn" id="warn">Open this page in <strong>Safari on the iPad</strong>; the install button doesn't work on a computer or in other browsers.</div>
-
-    <div class="new">
-      <h2>New in 1.0.3: faster consent signing</h2>
-      <ul>
-        <li>The consent form opens with the patient banner on top, the same as the patient chart.</li>
-        <li>The responsible health professional is chosen from a dropdown, set to you by default.</li>
-        <li>Patient and professional signatures open a large signature box only: no name or role to type.</li>
-      </ul>
-      <p style="margin-top:8px">Also included (1.0.2): shared iPad PIN lock after 5 minutes idle.</p>
-    </div>
-
-    <ol>
-      <li>Tap <strong>Install on this iPad</strong>, then tap <strong>Install</strong> in the prompt.</li>
-      <li>Go to the Home Screen and wait for the icon to finish downloading.</li>
-      <li>First launch only: if iPadOS says Developer Mode is required, open <strong>Settings → Privacy &amp; Security → Developer Mode</strong>, turn it on and restart. <span>(Ad hoc apps usually don't need this.)</span></li>
-      <li>Sign in with your clinic account (server <strong>ehr-new.on-forge.com</strong>), then create your 6-digit PIN.</li>
-    </ol>
+  <div class="top">
+    <h1>Medical Ocean iPad apps</h1>
+    <p>Install on iPads registered to Medical Ocean LTD · Requires iPadOS 26 or later</p>
+    <div class="warn" id="warn">Open this page in <strong>Safari on the iPad</strong>; the install buttons don't work on a computer or in other browsers.</div>
   </div>
-  <footer>Only iPads registered to Medical Ocean LTD can install this build. · <a href="kiosk/">Check-in kiosk app</a></footer>
+
+  <div class="apps">
+    <section class="card" id="ehr">
+      <img class="icon" src="icon-512.png" alt="Medical Ocean EHR app icon">
+      <h1>Medical Ocean</h1>
+      <p class="meta">EHR for nurses and clinicians · Version 1.0.3 (3)</p>
+      <a class="install" href="itms-services://?action=download-manifest&amp;url=https://laravel-vibes.github.io/MO-iPad/manifest.plist">Install EHR app</a>
+
+      <div class="new">
+        <h2>New in 1.0.3: faster consent signing</h2>
+        <ul>
+          <li>The consent form opens with the patient banner on top, the same as the patient chart.</li>
+          <li>The responsible health professional is chosen from a dropdown, set to you by default.</li>
+          <li>Patient and professional signatures open a large signature box only: no name or role to type.</li>
+        </ul>
+        <p style="margin-top:8px">Also included (1.0.2): shared iPad PIN lock after 5 minutes idle.</p>
+      </div>
+
+      <ol>
+        <li>Tap <strong>Install EHR app</strong>, then tap <strong>Install</strong> in the prompt.</li>
+        <li>Wait for the icon to finish downloading on the Home Screen.</li>
+        <li>Sign in with your clinic account (server <strong>ehr-new.on-forge.com</strong>), then create your 6-digit PIN.</li>
+      </ol>
+    </section>
+
+    <section class="card" id="kiosk">
+      <img class="icon" src="kiosk/icon-512.png" alt="Check-in kiosk app icon">
+      <h1>Medical Ocean Check-in</h1>
+      <p class="meta">Waiting-room self check-in kiosk · Version 1.0 (1)</p>
+      <a class="install" href="itms-services://?action=download-manifest&amp;url=https://laravel-vibes.github.io/MO-iPad/kiosk/manifest.plist">Install Check-in kiosk</a>
+
+      <div class="new">
+        <h2>What it does</h2>
+        <ul>
+          <li>Patients type their date of birth, tap their booking and press <strong>Check in</strong>.</li>
+          <li>The appointment shows as <strong>Arrived</strong> in the EHR straight away.</li>
+          <li>English and Arabic. Nothing about the patient is kept on the iPad.</li>
+        </ul>
+      </div>
+
+      <ol>
+        <li>Tap <strong>Install Check-in kiosk</strong>, then tap <strong>Install</strong> in the prompt.</li>
+        <li>In the EHR, go to <strong>Settings → Appointments → Check-in kiosks</strong>, add a kiosk for the location and copy its 8-character pairing code.</li>
+        <li>Open <strong>Check-in</strong> on the iPad and enter the code. <span>(Codes expire after 24 hours.)</span></li>
+        <li>Optional: turn on <strong>Guided Access</strong> (Settings → Accessibility) so patients can't leave the app. Hold the logo for 5 seconds to unpair.</li>
+      </ol>
+    </section>
+  </div>
+  <footer>First launch only: if iPadOS asks for Developer Mode, open Settings → Privacy &amp; Security → Developer Mode, turn it on and restart.</footer>
 </main>
 <script>
   var ua = navigator.userAgent;
